@@ -1,0 +1,59 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "SpaceGame_tileSet.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "TileMap.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 714.25,
+                "y": 406.5
+            }
+        },
+        "nature_tilemap.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilemap.json": {
+            "scale": 1.1113020833333331,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 509.76238459014866,
+                "y": 480.5174110699724
+            }
+        },
+        "tilemap.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/dshelby/Desktop/Assignments/Quarter 4/Intro to Game Programming/GameEngine_SprintII/Build/Assets/spacegame/tilemaps",
+    "last.imagePath": "C:/Users/dshelby/Desktop/Assignments/Quarter 4/Intro to Game Programming/GameEngine_SprintII/Build/Assets/spacegame/tilemaps",
+    "map.height": 30,
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+    ],
+    "project": "tilemap_spaceGame.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "tilemap.json",
+        "nature_tilemap.tsx",
+        "TileMap.tmx",
+        "tilemap.tsx",
+        "SpaceGame_tileSet.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 0,
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    }
+}

@@ -1,0 +1,7 @@
+{
+  "texture_name": "textures/Soldier.png",
+  "columns": 9,
+  "rows": 7,
+  "start_frame": 36,
+  "total_frames": 9
+}

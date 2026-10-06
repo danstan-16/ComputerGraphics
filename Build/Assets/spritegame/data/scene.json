@@ -1,0 +1,141 @@
+{
+	"actors": [
+		{
+			"type": "EnemyController",
+			"prototype": true,
+			"name": "EnemyPrototype",
+			"tag": "Enemy",
+			"active": true,
+			"persistent": true,
+			"transform": {
+				"position": [ 200, 200 ],
+				"rotation": 0,
+				"scale": 3
+			},
+			"components": [
+				{
+					"type": "SpriteAnimatorRendererComponent",
+					"default_animation": "idle",
+					"animations": [
+						{
+							"name": "run",
+							"texture_frames": "animations/orc_run.json",
+							"frames_per_second": 10,
+							"loop": true
+						},
+						{
+							"name": "idle",
+							"texture_frames": "animations/orc_idle.json",
+							"frames_per_second": 10,
+							"loop": true
+						},
+						{
+							"name": "attack",
+							"texture_frames": "animations/orc_attack.json",
+							"frames_per_second": 10,
+							"loop": false
+						}
+					]
+				},
+				{
+					"type": "Box2DPhysicsComponent",
+					"linear_damping": 2.0,
+					"angular_damping": 2.0,
+					"shape": "capsule",
+					"size": [ 16, 22 ],
+					"constrain_angle": true,
+					"gravity_scale": -1
+				}
+			]
+		},
+		{
+			"prototype": true,
+			"name": "PlayerPrototype",
+			"type": "PlayerController",
+			"tag": "Player",
+			"active": true,
+			"speed": 20000.0,
+			"damping": 30,
+			"transform": {
+				"position": [ 640, 512 ],
+				"rotation": 0,
+				"scale": 3
+			},
+			"components": [
+				{
+					"type": "SpriteAnimatorRendererComponent",
+					"default_animation": "idle",
+					"animations": [
+						{
+							"name": "idle",
+							"texture_frames": "animations/player_idle.json",
+							"frames_per_second": 10,
+							"loop": true
+						},
+						{
+							"name": "run",
+							"texture_frames": "animations/player_run.json",
+							"frames_per_second": 10,
+							"loop": true
+						},
+						{
+							"name": "attack",
+							"texture_frames": "animations/player_attack.json",
+							"frames_per_second": 10,
+							"loop": false
+						}
+					]
+				},
+				{
+					"type": "Box2DPhysicsComponent",
+					"linear_damping": 2.0,
+					"angular_damping": 2.0,
+					"shape": "capsule",
+					"size": [ 16, 22 ],
+					"constrain_angle": true,
+					"gravity_scale": -1
+				}
+			]
+		},
+		{
+			"prototype": true,
+			"name": "ProjectilePrototype",
+			"type": "Projectile",
+			"tag": "PlayerArrow",
+			"active": true,
+			"speed": 2000.0,
+			"damping": 30,
+			"lifespan": 3.0,
+			"texture": "textures/arrow.png",
+			"transform": {
+				"position": [ 640, 512 ],
+				"rotation": 0,
+				"scale": 3
+			},
+			"components": [
+				{
+					"type": "SpriteRendererComponent",
+					"texture": "textures/arrow.png"
+				},
+				{
+					"type": "RigidBodyPhysicsComponent",
+					"mass": 2,
+					"damping": 3,
+					"angular_damping": 2,
+					"gravity_scale": 0,
+					"velocity": 10,
+					"angular_velocity": 0
+				},
+				{
+					"type": "Box2DPhysicsComponent",
+					"linear_damping": 0,
+					"angular_damping": 2.0,
+					"shape": "capsule",
+					"size": [ 36, 48 ],
+					"constrain_angle": true,
+					"gravity_scale": 0
+				}
+			]
+		}
+	]
+}
