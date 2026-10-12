@@ -4,55 +4,19 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{f4064a94-4e37-4e08-bddc-3155ab7de337}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\SpaceGame">
-      <UniqueIdentifier>{2376651e-3dec-4a3d-991b-ff515cb120cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpriteGame">
-      <UniqueIdentifier>{90884f94-2529-4bcd-a741-54a09479a2db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpaceGame\Scene">
-      <UniqueIdentifier>{637a663e-8ceb-44a1-8758-5e6661d36cb4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpaceGame\Tilemaps">
-      <UniqueIdentifier>{aa27c23f-83a7-4189-8717-ffd6ee34015a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpaceGame\Animations">
-      <UniqueIdentifier>{ae1cf568-14da-44e3-a8b6-2ab122dd4bcc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpriteGame\Animations">
-      <UniqueIdentifier>{969e9429-e1a7-418c-8d05-f7dbedda2733}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpriteGame\Scene">
-      <UniqueIdentifier>{6916e37e-3469-45cf-b558-3bbefe5bcfc8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\SpriteGame\Tilemaps">
-      <UniqueIdentifier>{23dd4c11-61d6-4704-9680-2aed98987e9a}</UniqueIdentifier>
+    <Filter Include="Assets\Shaders">
+      <UniqueIdentifier>{3f2a14c0-8a7c-490c-af08-1dc5da73bbea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Build\Assets\spacegame\data\scene.json">
-      <Filter>Assets\SpaceGame\Scene</Filter>
-    </None>
-    <None Include="..\Build\Assets\spacegame\animations\bat_idle.json">
-      <Filter>Assets\SpaceGame\Animations</Filter>
-    </None>
-    <None Include="..\Build\Assets\spacegame\tilemaps\world.json">
-      <Filter>Assets\SpaceGame\Tilemaps</Filter>
-    </None>
-    <None Include="..\Build\Assets\spritegame\animations\bat_idle.json">
-      <Filter>Assets\SpriteGame\Animations</Filter>
-    </None>
-    <None Include="..\Build\Assets\spritegame\data\scene.json">
-      <Filter>Assets\SpriteGame\Scene</Filter>
-    </None>
-    <None Include="..\Build\Assets\spritegame\tilemaps\world.json">
-      <Filter>Assets\SpriteGame\Tilemaps</Filter>
-    </None>
-    <None Include="..\Build\Assets\spritegame\data\level.json">
-      <Filter>Assets\SpriteGame\Scene</Filter>
-    </None>
+    <CustomBuild Include="..\Shaders\color.frag.hlsl">
+      <Filter>Assets\Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\Shaders\position.vert.hlsl">
+      <Filter>Assets\Shaders</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
