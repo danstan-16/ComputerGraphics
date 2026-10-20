@@ -44,7 +44,7 @@ namespace nu
 				renderer.SetColor(particle.color.r, particle.color.g, particle.color.b);
 				if (particle.texture)
 				{
-					renderer.DrawTexture(*particle.texture, particle.position.x, particle.position.y, m_transform.rotation, 0.25f);
+					//renderer.DrawTexture(*particle.texture, particle.position.x, particle.position.y, m_transform.rotation, 0.25f);
 				}
 			}
 		}

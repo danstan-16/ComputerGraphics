@@ -47,15 +47,16 @@ namespace nu
 		const Transform& GetTransform() const { return m_transform; }
 		void SetTransform(const Transform& transform) { m_transform = transform; }
 
-		void SetPosition(const Vector2& position) { m_transform.position = position; }
-		void SetRotation(const float rotation) { m_transform.rotation = rotation; }
-		void SetScale(const float scale) { m_transform.scale = scale; }
+		void SetPosition(const glm::vec3& position) { m_transform.position = position; }
+		void SetRotation(const glm::vec3 rotation) { m_transform.rotation = rotation; }
+		void SetScale(const glm::vec3 scale) { m_transform.scale = scale; }
 
 		const Vector2 GetVelocity() const { return m_velocity; }
 		void SetVelocity(const Vector2& velocity) { m_velocity = velocity; }
 		void AddVelocity(const Vector2& velocity) { m_velocity += velocity; }
 
 		const std::string& GetName() const { return m_name; }
+
 		const std::string& GetTag() const { return m_tag; }
 		void SetTag(const std::string& tag) { m_tag = tag; }
 

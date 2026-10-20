@@ -19,8 +19,6 @@
 
 #include "Serialization/Json.h"
 
-#include "Physics/Physics.h"
-
 //systems
 #include "Input/Input.h"
 #include "Core/GameTime.h"
@@ -62,7 +60,6 @@ namespace nu
 		}
 
 		ParticleSystem& GetPS() { return m_particleSystem; }
-		Physics& GetPhysics() { return m_physics; }
 
 
 
@@ -74,7 +71,5 @@ namespace nu
 		Renderer m_renderer;
 		Time m_time;
 		Audio m_audio;
-		Physics m_physics;
-
 	};
 }

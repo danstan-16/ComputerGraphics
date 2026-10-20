@@ -120,7 +120,7 @@ namespace nu::json
         return true;
     }
 
-    bool Read(const value_t& value, const std::string& name, Vector2& data, bool required)
+    bool Read(const value_t& value, const std::string& name, glm::vec2& data, bool required)
     {
         // check if the value has the "<name>" and the correct data type
         if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsArray() || value[name.c_str()].Size() != 2)
@@ -149,7 +149,7 @@ namespace nu::json
         return true;
     }
 
-    bool Read(const value_t& value, const std::string& name, Vector3& data, bool required)
+    bool Read(const value_t& value, const std::string& name, glm::vec3& data, bool required)
     {
         // check if the value has the "<name>" and the correct data type
         if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsArray() || value[name.c_str()].Size() != 3)
