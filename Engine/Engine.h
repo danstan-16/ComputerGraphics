@@ -11,7 +11,6 @@
 #include "Core/StringUtils.h"
 #include "Core/Random.h"
 
-#include "Renderer/Text.h"
 #include "Renderer/Texture.h"
 #include "Renderer/ParticleSystem.h"
 

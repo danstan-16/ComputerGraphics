@@ -59,10 +59,10 @@ int main()
 
     Transform transform;
 
-    auto model = Resources().Get<Model>("models/teapot-1.obj", Engine::Get().GetRenderer());
+    //auto model = Resources().Get<Model>("models/teapot-1.obj", Engine::Get().GetRenderer());
 
-    auto vshader = Resources().Get<nu::Shader>("shaders/unlit.vert", Engine::Get().GetRenderer(), 1);
-    auto fshader = Resources().Get<nu::Shader>("shaders/unlit.frag", Engine::Get().GetRenderer(), 1);
+    //auto vshader = Resources().Get<nu::Shader>("shaders/lit.vert", Engine::Get().GetRenderer(), 1);
+    //auto fshader = Resources().Get<nu::Shader>("shaders/lit.frag", Engine::Get().GetRenderer(), 1);
 
     auto pipeline = std::make_shared<Pipeline>();
 
@@ -72,9 +72,18 @@ int main()
     pipeline->AddVertexAttribute(2, SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3, offsetof(Model::Vertex, normal));
     pipeline->AddVertexAttribute(3, SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3, offsetof(Model::Vertex, tangent));
 
+
+    auto model = Resources().Get<Model>("models/spot.obj", Engine::Get().GetRenderer());
+    auto texture = Resources().Get<Texture>("textures/spot_diffuse-1.png", Engine::Get().GetRenderer());
+
+    auto vshader = Resources().Get<nu::Shader>("shaders/unlit.vert", Engine::Get().GetRenderer(), 1);
+    auto fshader = Resources().Get<nu::Shader>("shaders/unlit.frag", Engine::Get().GetRenderer(), 1, 1);
+
     pipeline->Create(*vshader.get(), *fshader.get(),
         Engine::Get().GetRenderer().GetGPUDevice(),
         Engine::Get().GetRenderer().GetWindow());
+
+    Color4 color{ 1, 1, 1, 1 };
 
     // handle events
     bool quit = false;
@@ -114,7 +123,7 @@ int main()
         cameraPosition += direction * 4.0f * dt;
 
         // TRANSFORM
-        transform.rotation.z = time * 90;
+        transform.rotation.y = time * 90;
 
         // VIEW MATRIX
         auto view = glm::lookAtRH(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 });
@@ -130,13 +139,12 @@ int main()
         Engine::Get().GetRenderer().BeginFrame();
 
         Engine::Get().GetRenderer().SetPipeline(*pipeline);
-        //Engine::Get().GetRenderer().SetVertexBuffer(*vb);
-        //Engine::Get().GetRenderer().SetIndexBuffer(*ib);
         Engine::Get().GetRenderer().SetVertexUniform(0, &uniform, sizeof(uniform));
-        Engine::Get().GetRenderer().SetFragmentUniform(0, &tint, sizeof(tint));
-        model->Draw(Engine::Get().GetRenderer());
 
-        //Engine::Get().GetRenderer().DrawIndex(*ib);
+        Engine::Get().GetRenderer().SetFragmentUniform(0, &color, sizeof(color));
+        Engine::Get().GetRenderer().SetFragmentTexture(0, *texture);
+
+        model->Draw(Engine::Get().GetRenderer());
 
         Engine::Get().GetRenderer().EndFrame();
     }
