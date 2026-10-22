@@ -1,6 +1,12 @@
 cbuffer Uniforms : register(b0, space1)
 {
     float4x4 mvp;
+    float4x4 model;
+}
+
+cbuffer LightUniform : register(b1, space2)
+{
+    float3 ambient;
 }
 
 struct Input
@@ -14,15 +20,23 @@ struct Output
 {
     float4 position : SV_Position;
     float2 texcoord : TEXCOORD0;
-    float4 color : TEXCOORD1;
+    float3 diffuse : TEXCOORD1;
 };
 
 Output main(Input input)
 {
     Output output;
     output.texcoord = input.texcoord;
-    output.color = float4(input.normal, 1);
     output.position = mul(mvp, float4(input.position, 1.0f));
+    
+    // DIFFUSE    
+    float3 N = normalize(mul((float3x3) model, input.normal));
+    float3 L = float3(0, -1, 0);
+    float NdotL = saturate(dot(N, L));
+    
+    float3 diffuse = NdotL;
+    
+    output.diffuse = ambient + diffuse;
 
     return output;
 }
