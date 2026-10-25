@@ -4,9 +4,14 @@ cbuffer Uniforms : register(b0, space1)
     float4x4 model;
 }
 
-cbuffer LightUniform : register(b1, space2)
+cbuffer LightUniform : register(b1, space1)
 {
+    float3 lightDirection;
+    float padding1;
+    float3 lightColor;
+    float lightIntensity;
     float3 ambient;
+    float padding2;
 }
 
 struct Input
@@ -31,10 +36,10 @@ Output main(Input input)
     
     // DIFFUSE    
     float3 N = normalize(mul((float3x3) model, input.normal));
-    float3 L = float3(0, -1, 0);
+    float3 L = -lightDirection;
     float NdotL = saturate(dot(N, L));
     
-    float3 diffuse = NdotL;
+    float3 diffuse = lightColor * lightIntensity * NdotL;
     
     output.diffuse = ambient + diffuse;
 

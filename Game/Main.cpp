@@ -25,7 +25,7 @@ int main()
     auto model = Resources().Get<Model>("models/spot.obj", Engine::Get().GetRenderer());
     auto texture = Resources().Get<Texture>("textures/spot_diffuse-1.png", Engine::Get().GetRenderer());
 
-    auto vshader = Resources().Get<nu::Shader>("shaders/lit.vert", Engine::Get().GetRenderer(), 1);
+    auto vshader = Resources().Get<nu::Shader>("shaders/lit.vert", Engine::Get().GetRenderer(), 2);
     auto fshader = Resources().Get<nu::Shader>("shaders/lit.frag", Engine::Get().GetRenderer(), 1, 1);
 
     pipeline->AddVertexBuffer(sizeof(Model::Vertex));
@@ -48,10 +48,20 @@ int main()
 
     struct LightUniform
     {
+        glm::vec3 lightDirection;
+        float padding1;
+
+        glm::vec3 lightColor;
+        float lightIntensity;
+
         glm::vec3 ambient;
+        float padding2;
     };
     LightUniform lightUniform{
-        .ambient{ 0.1f }
+        .lightDirection {0, -1, 0 },
+        .lightColor { 0, 0, 1},
+        .lightIntensity { 1 },
+        .ambient{ 0.1f },
     };
       
     glm::vec3 cameraPosition{ 0, 0, 5 };
