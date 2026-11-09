@@ -10,8 +10,6 @@ namespace nu
 	class ResourceManager : public Singleton<ResourceManager>
 	{
 	public:
-		void RemoveAll() { m_resources.clear(); }
-
 		template<typename T, typename ... Args>
 			requires std::derived_from<T, Resource>
 		res_t<T> Get(const std::string& name, Args&& ... args);
@@ -19,6 +17,8 @@ namespace nu
 		template<typename T, typename ... Args>
 			requires std::derived_from<T, Resource>
 		res_t<T> GetWithID(const std::string& id, const std::string& name, Args&& ... args);
+
+		void Clear() { m_resources.clear(); }
 
 	private:
 		std::map<std::string, res_t<Resource>> m_resources;

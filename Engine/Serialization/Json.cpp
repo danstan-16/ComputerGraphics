@@ -178,6 +178,35 @@ namespace nu::json
         return true;
     }
 
+    bool Read(const value_t& value, const std::string& name, glm::vec4& data, bool required)
+    {
+        // check if the value has the "<name>" and the correct data type
+        if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsArray() || value[name.c_str()].Size() != 4)
+        {
+            if (required)
+                std::cerr << "Could not read JSON value (vector4): " << name << std::endl;
+            return false;
+        }
+
+        // get the data
+        // get the json array object
+        auto& array = value[name.c_str()];
+
+        // get array values, iterate through each element
+        for (rapidjson::SizeType i = 0; i < array.Size(); ++i)
+        {
+            if (!array[i].IsNumber())
+            {
+                if (required)
+                    std::cerr << "Could not read JSON value (vector4): " << name << std::endl;
+                return false;
+            }
+            // get the data
+            data[i] = array[i].GetFloat();
+        }
+        return true;
+    }
+
     bool Read(const value_t& value, const std::string& name, std::vector<int>& data, bool required)
     {
         // check if the value has the "<name>" and the correct data type
@@ -209,6 +238,42 @@ namespace nu::json
 
             // get the data
             data.push_back(array[i].GetInt());
+        }
+
+        return true;
+    }
+
+    bool Read(const value_t& value, const std::string& name, std::vector<std::string>& data, bool required)
+    {
+        // check if the value has the "<name>" and is an array
+        if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsArray())
+        {
+            if (required)
+            {
+                std::cerr << "Could not read JSON value (std::vector<std::string>): " << name << std::endl;
+            }
+
+            return false;
+        }
+
+        // get the data
+
+        // get json array object
+        auto& array = value[name.c_str()];
+        // get array values, iterate thorugh each element
+        for (rapidjson::SizeType i = 0; i < array.Size(); ++i)
+        {
+            if (!array[i].IsString())
+            {
+                if (required)
+                {
+                    std::cerr << "Could not read JSON value (std::vector<std::string>): " << name << std::endl;
+                }
+                return false;
+            }
+
+            // get the data
+            data.push_back(array[i].GetString());
         }
 
         return true;

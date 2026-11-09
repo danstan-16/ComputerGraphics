@@ -15,7 +15,7 @@ namespace nu
 		glm::vec3 rotation{ 0.0f }; // degrees
 		glm::vec3 scale{ 1.0f };
 
-		glm::mat4 matrix;
+
 
 		const glm::mat4& GetMatrix()
 		{

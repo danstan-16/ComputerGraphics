@@ -34,6 +34,8 @@ namespace nu
 
 	void Scene::Draw(const class Renderer& renderer)
 	{
+		//lightUniform.ambient = glm::vec3{0.2f};
+
 		for (const auto& actor : m_actors)
 		{
 			if(actor) actor->Draw(renderer);

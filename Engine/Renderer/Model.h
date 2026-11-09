@@ -30,19 +30,21 @@ namespace nu
 		{
 			std::unique_ptr<VertexBuffer> vertexBuffer;
 			std::unique_ptr<IndexBuffer> indexBuffer;
+			uint32_t materialIndex = 0;
 		};
 
-	public:
 		bool Load(const std::string& filename, const class Renderer& renderer);
 
 		// binds and draws every mesh, call between BeginFrame and EndFrame with a pipeline set
-		void Draw(class Renderer& renderer) const;
+		void Draw(const class Renderer& renderer) const;
 
 	private:
 		void ProcessNode(aiNode* node, const aiScene* scene, const class Renderer& renderer);
 		void ProcessMesh(aiMesh* mesh, const aiScene* scene, const class Renderer& renderer);
 
-	private:
+		void LoadMaterial(const aiScene* scene, const std::string& directory, const class Renderer& renderer);
+
 		std::vector<Mesh> m_meshes;
+		std::vector<MaterialInstance> m_materials;
 	};
 }
