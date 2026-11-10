@@ -27,7 +27,7 @@ namespace nu
 
 			auto mxs = glm::scale(scale);
 
-			matrix = mxt * mxr * mxs;
+			auto matrix = mxt * mxr * mxs;
 
 			return matrix;
 		}

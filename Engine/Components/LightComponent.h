@@ -12,7 +12,7 @@ namespace nu
 		void Draw(const Renderer& renderer) override;
 		void Read(const json::value_t& value) override;
 
-		Light GetLightData() const;
+		//Light GetLightData() const;
 
 	private:
 		LightType m_type = LightType::Point;

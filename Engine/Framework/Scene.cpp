@@ -34,7 +34,35 @@ namespace nu
 
 	void Scene::Draw(const class Renderer& renderer)
 	{
-		//lightUniform.ambient = glm::vec3{0.2f};
+	//	FrameUniform frameUniform{};
+
+	//	auto camera = GetActorByName("Camera");
+	//	if (camera)
+	//	{
+	//		frameUniform.cameraPosition = camera->GetTransform().position;
+	//		frameUniform.view = cameraComponent->GetView();
+	//		frameUniform.projection = cameraComponent->GetProjection();
+	//		frameUniform.viewProjection = frameUniform.project * frameUniform.view;
+
+	//		renderer.SetVertexUniform(UniformSlot::Frame, &frameUniform, sizeof(frameUniform));
+	//		renderer.SetFragmentUniform(UniformSlot::Frame, &frameUniform, sizeof(frameUniform));
+	//	}
+
+	//	LightUniform lightUniform{};
+
+	//	auto lights = GetActorsByTag("Light");
+	//	for(auto light : lights)
+	//	{
+	//		auto lightComponent = light->GetComponent<LightComponent>();
+	//		if (lightComponent)
+	//		{
+	//			//lightUniform.lights[lightUniform.count++] = lightComponent->GetLightData();
+	//		}
+	//	}
+
+	//	renderer.SetVertexUniform(UniformSlot::Light, &lightUniform, sizeof(lightUniform));
+	//	renderer.SetFragmentUniform(UniformSlot::Light, &lightUniform, sizeof(lightUniform));
+	//	//lightUniform.ambient = glm::vec3{0.2f};
 
 		for (const auto& actor : m_actors)
 		{

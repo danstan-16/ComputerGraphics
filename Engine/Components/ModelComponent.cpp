@@ -4,7 +4,7 @@
 #include "Framework/Actor.h"
 #include "Renderer/Uniforms.h"
 #include "Resources/ResourceManager.h"
-#include "Enging.h"
+#include "Engine.h"
 
 namespace nu
 {
@@ -12,14 +12,14 @@ namespace nu
 
 	void ModelComponent::Draw(const Renderer& renderer)
 	{
-		ObjectUniform objectUniform =
-		{
-			.model = m_owner->GetTransform().GetMatrix(),
-			.normalMatrix = m_owner->GetTransform().GetMatrix()
-		};
+		//ObjectUniform objectUniform =
+		//{
+		//	.model = m_owner->GetTransform().GetMatrix(),
+		//	.normalMatrix = m_owner->GetTransform().GetMatrix()
+		//};
 
-		renderer.SetVertexUniform(UniformSlot::Object, &objectUniform, sizeof(objectUniform));
-		renderer.SetFragmentUniform(UniformSlot::Object, &objectUniform, sizeof(objectUniform));
+		//renderer.SetVertexUniform(UniformSlot::Object, &objectUniform, sizeof(objectUniform));
+		//renderer.SetFragmentUniform(UniformSlot::Object, &objectUniform, sizeof(objectUniform));
 
 
 		m_model->Draw(renderer);

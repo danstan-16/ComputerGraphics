@@ -45,6 +45,6 @@ namespace nu
 		void LoadMaterial(const aiScene* scene, const std::string& directory, const class Renderer& renderer);
 
 		std::vector<Mesh> m_meshes;
-		std::vector<MaterialInstance> m_materials;
+		//std::vector<MaterialInstance> m_materials;
 	};
 }

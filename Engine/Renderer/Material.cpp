@@ -65,11 +65,11 @@ namespace nu
 		m_pipeline.AddVertexAttribute(2, SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3, offsetof(Model::Vertex, normal));
 		m_pipeline.AddVertexAttribute(3, SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3, offsetof(Model::Vertex, tangent));
 
-		if (!m_pipeline.Create(*m_vertexShader, *m_fragmentShader, renderer.m_gpuDevice, renderer.m_window))
-		{
-			std::cerr << "Could not create pipeline for Material: " << filename << std::endl;
-			return false;
-		}
+		//if (!m_pipeline.Create(*m_vertexShader, *m_fragmentShader, renderer.m_gpuDevice, renderer.m_window))
+		//{
+		//	std::cerr << "Could not create pipeline for Material: " << filename << std::endl;
+		//	return false;
+		//}
 
 		return true;
 	}

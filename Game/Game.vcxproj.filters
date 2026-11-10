@@ -18,5 +18,11 @@
     <None Include="..\Build\Assets\scenes\scene.json">
       <Filter>Assets\scenes</Filter>
     </None>
+    <None Include="..\Build\Assets\materials\ogre.instance.json">
+      <Filter>Assets\materials</Filter>
+    </None>
+    <None Include="..\Build\Assets\materials\phong.material.json">
+      <Filter>Assets\materials</Filter>
+    </None>
   </ItemGroup>
 </Project>

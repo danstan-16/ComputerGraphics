@@ -177,6 +177,9 @@
     <ClInclude Include="Renderer\Light.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="Components\CameraControllerComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -253,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="Renderer\Material.cpp">
       <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\CameraControllerComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
