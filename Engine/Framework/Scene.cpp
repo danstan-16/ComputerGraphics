@@ -66,7 +66,7 @@ namespace nu
 
 		for (const auto& actor : m_actors)
 		{
-			if(actor) actor->Draw(renderer);
+			if(actor && actor->IsActive()) actor->Draw(renderer);
 		}
 	}
 

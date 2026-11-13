@@ -12,6 +12,12 @@ namespace nu
 
 	void ModelComponent::Draw(const Renderer& renderer)
 	{
+		if (!m_model)
+		{
+			std::cerr << "Could not draw model for actor: " << m_owner->GetName() << std::endl;
+			return;
+		}
+
 		//ObjectUniform objectUniform =
 		//{
 		//	.model = m_owner->GetTransform().GetMatrix(),
