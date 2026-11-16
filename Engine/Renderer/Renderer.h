@@ -21,6 +21,8 @@ namespace nu
 		bool BeginFrame();
 		bool EndFrame();
 
+		void EndRenderPass();
+
 		void SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255) const;
 		void SetColor(float r, float g, float b, float a = 1.0f) const;
 
@@ -41,6 +43,9 @@ namespace nu
 		SDL_GPUDevice* GetGPUDevice() const { return m_gpuDevice; }
 		SDL_Window* GetWindow() const { return m_window; }
 
+		SDL_GPUCommandBuffer* GetGPUCommandBuffer() const { return m_commandBuffer; }
+		SDL_GPUTexture* GetGPUSwapchainTexture() const { return m_swapchainTexture; }
+
 		void SetPipeline(const class Pipeline& pipeline);
 		void SetVertexBuffer(const class VertexBuffer& vertexBuffer);
 		void SetIndexBuffer(const class IndexBuffer& indexBuffer);
@@ -54,6 +59,8 @@ namespace nu
 
 		void CreateDepthBuffer();
 
+		void SetClearColor(const glm::vec3& clearColor) { m_clearColor = clearColor; }
+		const glm::vec3& GetClearColor() const { return m_clearColor; }
 
 		friend class Text;
 		friend class Texture;
@@ -70,12 +77,15 @@ namespace nu
 		SDL_GPUCommandBuffer* m_commandBuffer = nullptr;
 		SDL_GPURenderPass* m_renderPass = nullptr;
 		SDL_GPUTexture* m_depthTexture = nullptr;
+		SDL_GPUTexture* m_swapchainTexture = nullptr;
 
 		Vector2 m_camera;
 		bool m_cameraEnabled = true;
 
 		int m_width = 0;
 		int m_height = 0;
+
+		glm::vec3 m_clearColor{ 0 };
 	};
 }
 

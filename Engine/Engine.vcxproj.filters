@@ -43,6 +43,12 @@
     <Filter Include="Serialization">
       <UniqueIdentifier>{96c7ff3d-17f8-48f5-afb4-4d0374fee083}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Editor">
+      <UniqueIdentifier>{0c31534d-d188-4568-bdfb-d159a71e4360}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor\ImGui">
+      <UniqueIdentifier>{6f9afa69-3ce0-4925-8836-ea5875f4f1bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -180,6 +186,36 @@
     <ClInclude Include="Components\CameraControllerComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\imgui.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\imgui_internal.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\imstb_rectpack.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\imstb_textedit.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\imstb_truetype.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\imconfig.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\ImGui\Editor.h">
+      <Filter>Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\backends\imgui_impl_sdl3.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\backends\imgui_impl_sdlgpu3.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\imGui\backends\imgui_impl_sdlgpu3_shaders.h">
+      <Filter>Editor\ImGui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -259,6 +295,30 @@
     </ClCompile>
     <ClCompile Include="Components\CameraControllerComponent.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\imGui\imgui_demo.cpp">
+      <Filter>Editor\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\imGui\imgui_draw.cpp">
+      <Filter>Editor\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\imGui\imgui_tables.cpp">
+      <Filter>Editor\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\imGui\imgui_widgets.cpp">
+      <Filter>Editor\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\imGui\imgui.cpp">
+      <Filter>Editor\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\ImGui\Editor.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\imGui\backends\imgui_impl_sdl3.cpp">
+      <Filter>Editor\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\imGui\backends\imgui_impl_sdlgpu3.cpp">
+      <Filter>Editor\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
