@@ -132,7 +132,7 @@ namespace nu
         }
 
 
-        SDL_GPUTexture* swapchainTexture = nullptr;
+        SDL_GPUTexture* m_swapchainTexture = nullptr;
         if (!SDL_WaitAndAcquireGPUSwapchainTexture(m_commandBuffer, m_window, &swapchainTexture, nullptr, nullptr))
         {
             std::cerr << "Could not acquire swapchain texture: " << SDL_GetError() << std::endl;
@@ -164,11 +164,7 @@ namespace nu
 
     bool Renderer::EndFrame()
     {
-        if (m_renderPass)
-        {
-            SDL_EndGPURenderPass(m_renderPass);
-            m_renderPass = nullptr;
-        }
+        EndRenderPass();
 
         if (!SDL_SubmitGPUCommandBuffer(m_commandBuffer))
         {
@@ -176,8 +172,18 @@ namespace nu
             return false;
         }
 
+        m_swapchainTexture = nullptr;
         m_commandBuffer = nullptr;
         return true;
+    }
+
+    void Renderer::EndRenderPass()
+    {
+        if (m_renderPass)
+        {
+            SDL_EndGPURenderPass(m_renderPass);
+            m_renderPass = nullptr;
+        }
     }
 
     void Renderer::SetPipeline(const Pipeline& pipeline)

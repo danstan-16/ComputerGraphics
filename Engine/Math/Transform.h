@@ -16,7 +16,7 @@ namespace nu
 		glm::vec3 rotation{ glm::identity<glm::quat>() }; // degrees
 		glm::vec3 scale{ 1.0f };
 
-		void SetRotation(const glm::vec3& euler) { rotation = glm::quat(glm::radians()) }
+		void SetRotation(const glm::vec3& euler) { rotation = glm::quat(glm::radians()); }
 		void SetRoation(const glm::quat& qrotation) { rotation = glm::normalize(qrotation); }
 		glm::vec3 GetRotation() const { return glm::degrees(glm::eulerAngles(rotation)); }
 

@@ -18,6 +18,8 @@ namespace nu
 			requires std::derived_from<T, Resource>
 		res_t<T> GetWithID(const std::string& id, const std::string& name, Args&& ... args);
 
+		const auto& GetAll() { return m_resources; }
+
 		void Clear() { m_resources.clear(); }
 
 	private:
@@ -58,6 +60,7 @@ namespace nu
 			std::cerr << "Could not load resource: " << name << std::endl;
 			return res_t<T>();
 		}
+		resource->SetName(name);
 		m_resources[name] = resource;
 		return resource;
 	}
@@ -80,6 +83,9 @@ namespace nu
 				std::cerr << "Resource type mismatch: " << id << std::endl;
 				return res_t<T>();
 			}
+
+			resource->SetName(id);
+			m_resources[id] = resource;
 
 			// return resource
 			return resource;

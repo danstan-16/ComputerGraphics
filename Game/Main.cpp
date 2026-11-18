@@ -5,13 +5,13 @@
 #include "Renderer/IndexBuffer.h"
 #include "Renderer/Pipeline.h"
 
-#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/gtx/transform.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
 
-#define MAX_LIGHTS 8
+//#define MAX_LIGHTS 8
 
 using namespace nu;
 
@@ -119,7 +119,9 @@ int main()
 
         SDL_Event e;
 
-        while (SDL_PollEvent(&e)) {
+        while (SDL_PollEvent(&e)) 
+        {
+            Engine::Get().GetEditor().ProcessEvent(e);
 
             if (e.type == SDL_EVENT_QUIT) {
                 quit = true;
@@ -138,6 +140,9 @@ int main()
         float time = Engine::Get().GetTime().GetTime();
 
         //scene.Update(dt);
+
+        Engine::Get().GetEditor().BeginFrame();
+        Engine::Get().GetEditor().Update(dt);
 
         glm::vec3 direction{ 0 };
         if (Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_A)) direction.x = -1;
@@ -191,6 +196,9 @@ int main()
 
         //scene.Draw(renderer);
         model->Draw(renderer);
+
+        renderer.EndRenderPass();
+        Engine::Get().GetEditor().Draw(renderer);
 
         renderer.EndFrame();
     }

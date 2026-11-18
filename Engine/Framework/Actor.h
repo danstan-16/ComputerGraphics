@@ -39,6 +39,8 @@ namespace nu
 
 		CLASS_PROTOTYPE(Actor)
 
+		void UpdateGui() override;
+
 		virtual void Update(float dt);
 		virtual void Draw(const class Renderer& renderer) const;
 
@@ -74,6 +76,7 @@ namespace nu
 
 		void AddComponent(std::unique_ptr<Component> component);
 		virtual void Start();
+
 
 		template<std::derived_from<Component> T>
 		T* GetComponent();

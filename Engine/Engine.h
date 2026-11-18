@@ -18,6 +18,8 @@
 
 #include "Serialization/Json.h"
 
+#include "Editor/Editor.h"
+
 //systems
 #include "Input/Input.h"
 #include "Core/GameTime.h"
@@ -34,6 +36,8 @@ namespace nu
 	{
 	public:
 		static Engine& Get() { static Engine engine; return engine; }
+
+		Editor& GetEditor() { return *m_editor; }
 
 		bool Initialize();
 		void Shutdown();
@@ -70,5 +74,6 @@ namespace nu
 		Renderer m_renderer;
 		Time m_time;
 		Audio m_audio;
+		std::unique_ptr<Editor> m_editor;
 	};
 }

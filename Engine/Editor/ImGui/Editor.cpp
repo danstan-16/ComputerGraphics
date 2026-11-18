@@ -3,6 +3,7 @@
 #include "Renderer/Renderer.h"
 #include "Framework/Scene.h"
 #include "Framework/Object.h"
+#include "Resources/ResourceManager.h"
 
 
 namespace nu
@@ -128,6 +129,14 @@ namespace nu
 
 	void Editor::UpdateAssets()
 	{
-
+		ImGui::Begin("Assets");
+		for (auto resource : Resources().GetAll())
+		{
+			ImGui::PushID(resource.second.get());
+			if(ImGui::Selectable(resource.second->GetName().c_str(), m_selected == resource.second.get()))
+			ImGui::Text("%s", resource.second->GetName().c_str());
+			ImGui::PopID();
+		}
+		ImGui::End();
 	}
 }
