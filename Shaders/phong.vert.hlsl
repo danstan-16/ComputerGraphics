@@ -23,6 +23,7 @@ struct Input
     float3 position : TEXCOORD0;
     float2 texcoord : TEXCOORD1;
     float3 normal : TEXCOORD2;
+    float3 tangent : TEXCOORD3;
 };
 
 struct Output
@@ -42,6 +43,7 @@ Output main(Input input)
     output.worldPosition = mul(model, float4(input.position, 1.0f)).xyz;
     output.normal = normalize(mul((float3x3) model, input.normal));
     
+    output.tangent = normalize(mul((float3x3) object.model, input.tangent));
     
     return output;
 }
