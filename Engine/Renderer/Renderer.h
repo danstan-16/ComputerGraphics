@@ -67,7 +67,7 @@ namespace nu
 		friend class Shader;
 		friend class VertexBuffer;
 		friend class IndexBuffer;
-		//friend class Material;
+		friend class Material;
 
 	private:
 		SDL_Window* m_window = nullptr;

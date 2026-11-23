@@ -9,8 +9,13 @@ namespace nu
 		CLASS_PROTOTYPE(CameraControllerComponent)
 
 		void Update(float dt) override;
+		void Read(const json::value_t& value) override;
+		void UpdateGui() override;
 
 	private:
-
+		float m_speed{ 1 };
+		float m_sensitivity{ 1 };
+		float m_pitch{ 0 };
+		float m_yaw{ 0 };
 	};
 }

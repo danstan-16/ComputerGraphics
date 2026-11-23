@@ -21,6 +21,5 @@ namespace nu
 
 	protected:
 		Actor* m_owner = nullptr;
-
 	};
 }

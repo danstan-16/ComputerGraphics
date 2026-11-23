@@ -162,7 +162,7 @@
     <ClInclude Include="Renderer\Texture.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Components\CameraComponents.h">
+    <ClInclude Include="Components\CameraComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\LightComponent.h">
@@ -319,6 +319,9 @@
     </ClCompile>
     <ClCompile Include="..\ThirdParty\imGui\backends\imgui_impl_sdlgpu3.cpp">
       <Filter>Editor\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\CameraComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

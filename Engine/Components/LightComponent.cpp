@@ -25,23 +25,35 @@ namespace nu
 		JSON_READ_NAME(value, "outer_angle", m_outerAngle);
 	}
 
-	//LightData LightComponent::GetLightData() const
-	//{
-	//	const Transform& transform = m_owner->GetTransform();
+	LightData LightComponent::GetLightData() const
+	{
+		const Transform& transform = m_owner->GetTransform();
 
-	//	LightData lightData =
-	//	{
-	//		.position = transform.position,
-	//		.type = m_type,
-	//		.direction = transform.Forward(),
-	//		.range = m_range,
-	//		.color = m_color,
-	//		.intensity = m_intensity,
-	//		.innerCutoff = glm::cos(glm::radians(m_innerAngle)),
-	//		.outerCutoff = glm::cos(glm::radians(m_outerAngle))
-	//	};
+		LightData lightData =
+		{
+			.position = transform.position,
+			.type = m_type,
+			.direction = transform.Forward(),
+			.range = m_range,
+			.color = m_color,
+			.intensity = m_intensity,
+			.innerCutoff = glm::cos(glm::radians(m_innerAngle)),
+			.outerCutoff = glm::cos(glm::radians(m_outerAngle))
+		};
 
-	//	return LightData();
-	//}
+		return lightData;
+	}
+
+	void LightComponent::UpdateGui()
+	{
+		const char* type[] = { "Directional", "Point", "Spot" };
+		ImGui::Combo("Type", (int*)(&m_type), types, 3);
+		ImGui::ColorEdit3("Color", glm::value_ptr(m_color));
+		ImGui::SliderFloat("Intensity", &m_intensity, 0.0f, 10.0f);
+		if (m_type != LightType::Directional)
+		{
+			ImGui::SliderFloat("Range", &m_range, 0.0f, 100.0f);
+		}
+	}
 }
 
