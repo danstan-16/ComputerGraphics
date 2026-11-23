@@ -24,5 +24,8 @@
     <None Include="..\Build\Assets\materials\phong.material.json">
       <Filter>Assets\materials</Filter>
     </None>
+    <None Include="..\Build\Assets\textures\skybox\skybox.cubemap.json">
+      <Filter>Assets\scenes</Filter>
+    </None>
   </ItemGroup>
 </Project>
