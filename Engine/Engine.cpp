@@ -10,7 +10,7 @@ namespace nu
 		m_input.Initialize();
 		m_audio.Initialize();
 		m_editor = std::make_unique<Editor>();
-		m_editor->Initialize();
+		m_editor->Initialize(m_renderer);
 
 		return true;
 	}

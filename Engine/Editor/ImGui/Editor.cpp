@@ -122,7 +122,7 @@ namespace nu
 		ImGui::Begin("Inspector");
 		if (m_selected)
 		{
-			m_selected->UpdateGUI();
+			m_selected->UpdateGui();
 		}
 		ImGui::End();
 	}

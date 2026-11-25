@@ -5,7 +5,7 @@
 #include <memory>
 
 #define CLASS_PROTOTYPE(classname) \
-	virtual std::unique_ptr<Object> Clone() const { return std::make_unique<classname>(*this); \
+	virtual std::unique_ptr<Object> Clone() const { return std::make_unique<classname>(*this);} \
 	virtual std::string GetClassName() const { return #classname; }
 
 namespace nu

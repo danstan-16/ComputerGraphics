@@ -72,7 +72,6 @@ namespace nu
 		bool GetPersistent() const { return m_persistent; }
 
 		virtual void Read(const nu::json::value_t& value) override;
-		void UpdateGui() override;
 
 		void AddComponent(std::unique_ptr<Component> component);
 		virtual void Start();

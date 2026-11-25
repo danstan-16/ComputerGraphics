@@ -35,5 +35,6 @@ namespace nu
 		void UpdateAssets();
 
 		bool m_active = true;
+		IGUI* m_selected{ nullptr };
 	};
 }

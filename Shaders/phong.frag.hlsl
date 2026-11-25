@@ -13,22 +13,14 @@ cbuffer ObjectUniform : register(OBJECT_SLOT, FRAGMENT_UNIFORM_SPACE)
     Object object;
 }
 
-cbuffer FrameUniform : register(FRAME_SLOT, FRAGMENT_UNIFORM_SLOT)
+cbuffer FrameUniform : register(FRAME_SLOT, FRAGMENT_UNIFORM_SPACE)
 {
     Frame frame;
 }
 
-cbuffer VertexUniforms : register(b0, space3)
-{
-    float4x4 mvp;
-    float4x4 model;
-    float3 cameraPosition;
-    float padding1;
-}
-
 cbuffer LightUniform : register(LIGHT_SLOT, FRAGMENT_UNIFORM_SPACE)
 {
-    Light lights;
+    Lights lights;
 }
 
 cbuffer MaterialUniforms : register(MATERIAL_SLOT, FRAGMENT_UNIFORM_SPACE)
@@ -52,7 +44,7 @@ Output main(Input input)
 {
 	Output output;
     
-    float specularMask = base_texture.Sample(specular_sampler, input.texcoord).r;
+    float specularMask = specular_texture.Sample(specular_sampler, input.texcoord).r;
     float3 emissive = emissive_texture.Sample(emissive_sampler, input.texcoord).rgb * material.emissiveColor;
     
     float4 albedo = base_texture.Sample(base_sampler, input.texcoord) * material.baseColor;
@@ -61,13 +53,16 @@ Output main(Input input)
     
     float3 N = normalize(input.normal);
     float3 V = normalize(frame.cameraPosition - input.worldPosition);
-    for (uint i = 0; i < lights.count; i++)
+    for (uint i = 0; i < lights.numLights; i++)
     {
         calculateLighting(lights.lights[i], material, input.worldPosition, N, V, diffuse, specular);
 
     }
     
-    output.color = float4(albedo.rgb * diffuse + specular * material.specularColor * specularMask + emissive, albedo.a);
+    output.color = float4(albedo.rgb * diffuse + 
+        specular * material.specularColor * specularMask +
+        emissive,
+        albedo.a);
 
 	return output;
 }

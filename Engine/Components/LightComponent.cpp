@@ -46,7 +46,7 @@ namespace nu
 
 	void LightComponent::UpdateGui()
 	{
-		const char* type[] = { "Directional", "Point", "Spot" };
+		const char* types[] = { "Directional", "Point", "Spot" };
 		ImGui::Combo("Type", (int*)(&m_type), types, 3);
 		ImGui::ColorEdit3("Color", glm::value_ptr(m_color));
 		ImGui::SliderFloat("Intensity", &m_intensity, 0.0f, 10.0f);

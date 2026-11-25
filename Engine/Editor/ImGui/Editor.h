@@ -30,12 +30,11 @@ namespace nu
 		bool GetActive() { return m_active; }
 
 	private:
-		class Object* m_selected = nullptr;
-
 		void UpdateHeirarchy(class Scene& scene);
 		void UpdateInspector();
 		void UpdateAssets();
 
 		bool m_active = true;
+		IGUI* m_selected{ nullptr };
 	};
 }

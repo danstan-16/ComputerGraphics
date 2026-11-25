@@ -4,7 +4,7 @@
 #include "Uniforms.h"
 #include "Serialization/Json.h"
 #include "Resources/ResourceManager.h"
-#include <glm/gtc/typec/>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace nu
 {

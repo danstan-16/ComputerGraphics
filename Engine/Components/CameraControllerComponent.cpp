@@ -11,9 +11,9 @@ namespace nu
 	void CameraControllerComponent::Update(float dt)
 	{
 		// get camera rotation
-		if (Engine::Get().GetInput().GetMouseButtonDown(Input::MouseButton::Right))
+		if (Engine::Get().GetInput().GetButtonDown(Input::MouseButton::Right))
 		{
-			glm::vec2 axis = GetEngine().GetInput().GetMouseDelta() * m_sensitivity;
+			glm::vec2 axis = Engine::Get().GetInput().GetMouseDelta() * m_sensitivity;
 
 			m_yaw -= axis.x;
 			m_pitch -= axis.y;
@@ -33,7 +33,7 @@ namespace nu
 		if (glm::length2(direction) > 0.0f) {
 			direction = glm::normalize(direction);
 		}
-		m_owner->SetPosition(m_owner->GetTransform().positon + direction * m_speed * dt);
+		m_owner->SetPosition(m_owner->GetTransform().position + direction * m_speed * dt);
 	}
 
 	void CameraControllerComponent::Read(const json::value_t& value)

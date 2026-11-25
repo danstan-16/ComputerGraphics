@@ -81,4 +81,9 @@ namespace nu
 		auto it = std::find(m_textureSlots.begin(), m_textureSlots.end(), name);
 		return (it != m_textureSlots.end()) ? (int)std::distance(m_textureSlots.begin(), it) : -1;
 	}
+
+	void Material::UpdateGui()
+	{
+
+	}
 }
